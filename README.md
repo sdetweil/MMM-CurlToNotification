@@ -13,7 +13,7 @@ add to config.js
 }
 ```
 
-to send a notification from any system on the network (accessible by MMM add/ipWhitelist)
+to send a notification from any system on the network (accessible by MMM address/ipWhitelist)
 
 here is a request to show an alert message using the Alert default module, note the last part of the host is the url_path
 
