@@ -21,8 +21,10 @@ here is a request to show an alert message using the Alert default module, note 
 curl --header "Content-Type: application/json"   --request POST   --data '{"notification":"SHOW_ALERT","payload":{"message":"fribble"}}' http://localhost:8080/testreq
 ```
 
+watch out, using curl from windows the quotes need to be handled differently
+
+```
+curl --header "Content-Type: application/json"   --request POST   --data "{\"notification\":\"SHOW_ALERT\",\"payload\":{\"message\":\"fribble\"}}" http://localhost:8080/testreq
+```
+
 multiple instances of this module with  different url_names is supported.
-
-
-
-
