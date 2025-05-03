@@ -6,12 +6,12 @@ Module.register("MMM-CurlToNotification", {
     config:null,
     notificationReceived: function (notification){
         if(notification === 'ALL_MODULES_STARTED')
-        this.sendSocketNotification('config', { name:this.config.url_name,id:this.identifier, debug:this.config.debug})
+            this.sendSocketNotification('config', { name:this.config.url_name,id:this.identifier, debug:this.config.debug})
     },
     socketNotificationReceived:function(notification, notification_data){
         if(notification_data.id === this.identifier){
             if(this.config.debug)
-                Log.debug("received request to send notication ",notification," with payload ", notification_data.payload)
+                console.log(this.name+ " received request to send notication ",notification," with payload ", notification_data.payload)
             this.sendNotification(notification, notification_data.payload)
         }
     }
