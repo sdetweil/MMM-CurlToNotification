@@ -9,6 +9,7 @@ add to config.js
   module:"MMM-CurlToNotification",
   config:{
     url_name:"testreq" // the path of the url for curl post
+    debug: true  //  false is the default
   }
 }
 ```
