@@ -2,11 +2,9 @@
 const NodeHelper = require("node_helper");
 const express = require('express')
 module.exports = NodeHelper.create({
-    config:null,
     socketNotificationReceived(notification, payload) {
         if (notification === 'config') {
             try {            
-                this.config=payload
                 if(payload.debug === true)
                     console.log(this.name+ "received request to setup")
                 this.expressApp.use((err, req, res, next) => {
@@ -24,10 +22,10 @@ module.exports = NodeHelper.create({
                 this.expressApp.post("/" + payload.name, express.json({ type: '*/*' }), (req, res) => {
             
                     const notificationInfo = req.body
-                    if(this.config.debug === true){
-                        console.log(this.name+ "received request to post notification ",notificationInfo , " with id="+this.config.id)
+                    if(payload.debug === true){
+                        console.log(this.name+ "received request to post notification ",notificationInfo)
                     }
-                    this.sendSocketNotification(notificationInfo.notification, { payload: notificationInfo.payload, id:this.config.id })
+                    this.sendSocketNotification(notificationInfo.notification, { payload: notificationInfo.payload, id:payload.id })
                     res.end()
                 });
             }
