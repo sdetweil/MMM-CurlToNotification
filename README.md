@@ -19,7 +19,7 @@ to send a notification from any system on the network (accessible by MMM address
 here is a request to show an alert message using the Alert default module, note the last part of the host is the url_path
 
 note: this notification is what the ALERT module needs, you need to examine the doc(README file) for the module to know exactly how the format should be<br><br>
-the values true and false and null must NOT be quoted, else they turn into a string, and a string is always true 
+the values true and false and null must NOT be quoted, else they turn into a string, and a string is always true <br>
 for example 
 ```
  -data '{"notification":"USER_PRESENCE","payload":false}'
